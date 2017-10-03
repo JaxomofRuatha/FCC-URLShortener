@@ -1,5 +1,9 @@
 const express = require('express');
 const path = require('path');
+const mongoose = require('mongoose');
+const env = require("./config/env")
+
+mongoose.connect(env.mongoUri, { useMongoClient: true });
 
 const index = require("./controllers/index");
 

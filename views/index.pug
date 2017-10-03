@@ -4,12 +4,10 @@ block content
     header
         h1 URL Shortener Express Microservice
     main
+        form(action="/" id="query-form")
+            input(type="text" id="input-url" required)
+            input(type="submit" id="submit" value="Submit")
     footer
-    script(
-        src="https://code.jquery.com/jquery-2.2.1.min.js" integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
-        crossorigin="anonymous"
-        type="text/javascript"
-        )
     script(
         src="js/client.js"
         type="text/javascript"

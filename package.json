@@ -1,5 +1,5 @@
 {
-    "name": "fcc-headerparser-jor",
+    "name": "fcc-urlshortener-jor",
     "version": "0.0.1",
     "description": "A request header parser microservice created with Express fulfilling the user stories of the Free Code Camp back end project",
     "main": "app.js",
@@ -7,17 +7,18 @@
         "node": "^6"
     },
     "scripts": {
-        "start": "node app.js"
+        "start": "nodemon app.js"
     },
     "dependencies": {
         "express": "^4.15.4",
+        "mongoose": "^4.11.14",
         "pug": "^2.0.0-rc.3"
     },
     "devDependencies": {
         "nodemon": "^1.11.0"
     },
     "repository": {
-        "url": "https://glitch.com/edit/#!/fcc-timestamp-jor"
+        "url": "https://glitch.com/edit/#!/fcc-urlshortener-jor"
     },
     "license": "MIT",
     "keywords": [
