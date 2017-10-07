@@ -3,9 +3,10 @@ const path = require('path');
 const mongoose = require('mongoose');
 const env = require("./config/env")
 
+mongoose.Promise = global.Promise;
 mongoose.connect(env.mongoUri, { useMongoClient: true });
 
-const index = require("./controllers/index");
+const index = require("./server/index");
 
 const app = express();
 
