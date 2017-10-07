@@ -2,25 +2,20 @@ const express = require('express');
 const router = express.Router();
 const randomstring = require("randomstring");
 
-const Shortened = require("./models/shortened");
-
-//Homepage render path setup
-router.get("/", (req, res) => {
-    res.render("index");
-});
+const Short = require("./models/short");
 
 router.get("/new/*", (req, res) => {
     const pattern = /\bhttps?:\/\/.+/g;
     const randUrl = randomstring.generate(7);
 
     if (pattern.test(req.path.slice(5))) {
-        Shortened.create({
+        Short.create({
             original_url: req.path.slice(5),
-            short_url: `${req.protocol}://${req.headers.host}/${randUrl}`
+            short_url: randUrl
         }).then((record) => {
             res.json({
                 original_url: record.original_url,
-                short_url: record.short_url
+                short_url: `${req.protocol}://${req.headers.host}/${record.short_url}`
             });
         }).catch((err) => {
             console.error(err);
@@ -31,8 +26,16 @@ router.get("/new/*", (req, res) => {
 });
 
 router.get("/:redirectUrl", (req, res) => {
-    //Check database for shortened URL
-    //Redirect to original URL destination
+    if (req.params.redirectUrl !== null) {
+        //Check database for shortened URL
+        Short.findOne({ "short_url": req.params.redirectUrl }, (err, reUrl) => {
+            //Redirect to original URL destination
+            if (err) res.send(err);
+            reUrl === null ? res.send("This link does not exist!") : res.redirect(reUrl.original_url);
+        })
+    } else {
+        res.render("index");
+    }
 })
 
 module.exports = router;
