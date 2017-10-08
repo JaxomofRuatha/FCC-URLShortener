@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const randomstring = require("randomstring");
+const validator = require("validator");
 
 const Short = require("./models/short");
 
 router.get("/new/*", (req, res) => {
-    const pattern = /\bhttps?:\/\/.+/g;
     const randUrl = randomstring.generate(7);
 
-    if (pattern.test(req.path.slice(5))) {
+    if (validator.isURL(req.path.slice(5))) {
         Short.create({
             original_url: req.path.slice(5),
             short_url: randUrl
