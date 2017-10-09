@@ -1,22 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Archivo');
 
 body {
-    background-color: #03191E;
-    color: #C1CFDA;
+    background-color: #051014;
+    color: #CDDDDD;
     font-family: 'Archivo', sans-serif;
     text-align: center;
 }
 
 h1 {
-    color: #20A4F3;
+    color: #A599B5;
 }
 
 h2 {
-    color: #941C2F;
-}
-
-h3 {
-    color: #59F8E8;
+    color: #526060;
 }
 
 main {
@@ -24,20 +20,21 @@ main {
     margin: 0 auto;
 }
 
-span, code {
-    padding-bottom: 20px;
+form {
+    width: 50vw;
+    padding: 1rem;
 }
 
-.example {
+span, code {
+    padding: 0.5rem;
+}
+
+.main-content {
     display: flex;
     flex-direction: column;
-    margin: 0 auto 0 auto;
+    align-items: center;
 }
 
-.sample-col {
-    width: 50%;
-}
-
-#flex-examples {
-    display: flex;
+#input-url {
+    width: 70%;
 }

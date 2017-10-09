@@ -4,9 +4,17 @@ block content
     header
         h1 URL Shortener Express Microservice
     main
-        form(action="/" id="query-form")
-            input(type="text" id="input-url" required)
-            input(type="submit" id="submit" value="Submit")
+        div.main-content
+            p You can put any URL into this form or pass it as a parameter, and this application will provide a shortened version that will be easier to use but take you to the same place!
+            h2 Example usage:
+            code https://fcc-urlshortener-jor.glitch.me/new/https://www.google.com
+            span (...or simply enter a valid URL into the form and submit!)
+            h2 Example JSON output and redirect:
+            code { "original_url":"https://www.google.com", "short_url":"https://fcc-urlshortener-jor.glitch.me/0U5CLJG" }
+            span (...and visiting the short_url will redirect to the original_url!)
+            form(action="/" id="query-form")
+                input(type="text" id="input-url" required)
+                input(type="submit" id="submit" value="Submit")
     footer
     script(
         src="js/client.js"

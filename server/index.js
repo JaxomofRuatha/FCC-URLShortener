@@ -5,6 +5,10 @@ const validator = require("validator");
 
 const Short = require("./models/short");
 
+router.get("/", (req, res) => {
+    res.render("index");
+})
+
 router.get("/new/*", (req, res) => {
     const randUrl = randomstring.generate(7);
 
