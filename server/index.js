@@ -12,7 +12,7 @@ router.get("/", (req, res) => {
 router.get("/new/*", (req, res) => {
     const randUrl = randomstring.generate(7);
 
-    if (validator.isURL(req.path.slice(5))) {
+    if (validator.isURL(req.path.slice(5), { require_protocol: true })) {
         Short.create({
             original_url: req.path.slice(5),
             short_url: randUrl
