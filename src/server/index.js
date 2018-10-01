@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const env = require('../../config/env');
 
 mongoose.Promise = global.Promise;
-mongoose.connect(env.mongoUri, { useNewUrlParser: true });
+mongoose.connect(env.MONGO_URI, { useNewUrlParser: true });
 
 const index = require('./routes');
 

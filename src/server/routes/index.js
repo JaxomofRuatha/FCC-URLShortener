@@ -25,11 +25,11 @@ router.post('/api/shorturl/new', (req, res) => {
         short_url: `${req.protocol}://${req.headers.host}/${record.short_url}`,
       });
     }).catch((err) => {
-      console.error(err);
+      res.json({ 'error': err });
     });
   } else {
     // If invalid, prompt for valid URL
-    res.send('Please enter a URL using a valid format and protocol!');
+    res.json({ 'error': 'Please enter a URL using a valid format and protocol!' });
   }
 });
 
@@ -38,8 +38,8 @@ router.get('/:redirectUrl', (req, res) => {
     // Check database for shortened URL
     Short.findOne({ short_url: req.params.redirectUrl }, (err, reUrl) => {
       // Redirect to original URL destination
-      if (err) res.send(err);
-      reUrl === null ? res.send('This link does not exist!') : res.redirect(reUrl.original_url);
+      if (err) res.json({ 'error': err });
+      reUrl === null ? res.json({ 'error': 'This link does not exist!' }) : res.redirect(reUrl.original_url);
     });
   } else {
     res.render('index');

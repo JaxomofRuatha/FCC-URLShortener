@@ -7,6 +7,7 @@ module.exports = {
   plugins: ['import'],
   rules: {
     'comma-dangle': [2, 'only-multiline'],
+    'global-require': [0],
     'max-len': [0, {ignoreUrls: true}],
     'no-plusplus': [0],
     'no-underscore-dangle': [0],
