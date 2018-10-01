@@ -1,0 +1,18 @@
+extends layout.pug
+
+block content
+    header
+        h1 URL Shortener Express Microservice
+    main
+        div.main-content
+            p You can put any URL into this form, and this application will provide a shortened version that will be easier to use but take you to the same place!
+            h2 Example usage:
+            code https://www.google.com
+            span Enter into the form, and submit!
+            h2 Example JSON output and redirect:
+            code { "original_url":"https://www.google.com", "short_url":"https://jc-urlshortener.glitch.me/0U5CLJG" }
+            span Visiting the short_url will redirect to the original_url!
+            form(method="post" action="/api/shorturl/new" id="query-form")
+                input(type="text" id="input-url" name="input-url" required)
+                input(type="submit" id="submit" value="Submit")
+    footer

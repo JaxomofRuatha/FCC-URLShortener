@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A URL shortening microservice created with Express fulfilling the user stories of the Free Code Camp back end project",
   "private": true,
-  "homepage": "https://jc-urlshort.glitch.me/",
+  "homepage": "https://jc-urlshortener.glitch.me/",
   "repository": {
     "type": "git",
     "url": "https://github.com/jchritton/jc-urlshortener"
@@ -11,24 +11,28 @@
   "bugs": {
     "url": "https://github.com/jchritton/jc-urlshortener/issues"
   },
-  "main": "app.js",
+  "main": "src/server/index.js",
   "engines": {
     "node": "^6"
   },
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon src/server/index.js"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.3",
-    "mongoose": "^5.2.1",
+    "isomorphic-fetch": "^2.2.1",
+    "mongoose": "^5.3.0",
     "pug": "^2.0.3",
     "randomstring": "^1.1.5",
-    "validator": "^10.4.0"
+    "validator": "^10.8.0"
   },
   "devDependencies": {
-    "eslint": "^5.0.1",
-    "eslint-config-airbnb": "^17.0.0",
-    "nodemon": "^1.17.5"
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.6.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "nodemon": "^1.18.4"
   },
   "license": "MIT",
   "keywords": [
